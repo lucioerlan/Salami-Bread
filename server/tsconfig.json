@@ -21,5 +21,8 @@
     "./custom_typings",
     "./@types",
     "./node_modules/@types"
-  ]
+  ],
+  "ts-node": {
+    "files": true
+  }
 }
