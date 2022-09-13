@@ -1,0 +1,35 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "jest": true
+  },
+  "settings": {
+    "import/resolver": {
+      "node": { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
+    }
+  },
+  "extends": ["react-app"],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "rules": {
+    "import/no-anonymous-default-export": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "no-console": "warn",
+    "require-await": "error",
+    "no-debugger": "warn",
+    "react/display-name": "off",
+    "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off",
+    "arrow-body-style": ["warn", "as-needed"],
+    "react-hooks/exhaustive-deps": "off",
+    "no-restricted-imports": [
+      "error",
+      {
+        "patterns": ["../*"]
+      }
+    ],
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "no-template-curly-in-string": "off"
+  }
+}
