@@ -1,9 +1,13 @@
-FROM node:16.3.0-alpine
+FROM node:alpine
 
-WORKDIR /usr/app
+WORKDIR "/app"
 
-COPY package*.json ./
-RUN npm ci -qy
+RUN npm install -g typescript
+
+COPY ./package.json ./
+COPY ./package-lock.json ./
+
+RUN npm install
 
 COPY . .
 
