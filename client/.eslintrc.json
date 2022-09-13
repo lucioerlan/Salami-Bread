@@ -1,70 +1,24 @@
 {
-  "env": {
-    "browser": true,
-    "es2021": true,
-    "jest": true,
-    "node": true
-  },
-  "settings": {
-    "react": {
-      "version": "detect"
-    }
-  },
-  "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended"
-  ],
+  "extends": ["react-app"],
   "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
-    },
-    "ecmaVersion": 12,
-    "sourceType": "module"
-  },
-  "plugins": ["react", "react-hooks", "@typescript-eslint", "eslint-plugin-import-helpers"],
+  "plugins": ["@typescript-eslint"],
   "rules": {
     "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
+    "no-console": "warn",
+    "require-await": "error",
+    "no-debugger": "warn",
+    "react/display-name": "off",
     "react/prop-types": "off",
     "react/react-in-jsx-scope": "off",
-    "react/display-name": "off",
-    "@typescript-eslint/explicit-module-boundary-types": "off",
-    "@typescript-eslint/no-non-null-assertion": "off",
-    "@typescript-eslint/no-explicit-any": "error",
     "arrow-body-style": ["warn", "as-needed"],
-    "import-helpers/order-imports": [
+    "react-hooks/exhaustive-deps": "off",
+    "no-restricted-imports": [
       "error",
       {
-        "newlinesBetween": "never",
-        "groups": [
-          "module",
-          "/^services/",
-          "/^hooks/",
-          "/^routes/",
-          "/^pages/",
-          "/^components/",
-          "/^styles/",
-          "/^interfaces/",
-          "/^constants/",
-          "/^assets/",
-          "parent",
-          "sibling",
-          "index"
-        ],
-        "alphabetize": { "order": "asc", "ignoreCase": true }
+        "patterns": ["../*"]
       }
     ],
-    "no-restricted-imports": ["error", { "patterns": ["../*"] }]
-  },
-  "overrides": [
-    {
-      "files": ["*.d.ts"],
-      "rules": {
-        "@typescript-eslint/no-unused-vars": "off"
-      }
-    }
-  ]
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "no-template-curly-in-string": "off"
+  }
 }
