@@ -2,18 +2,6 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint-staged",
-      "pre-push": "cross-env CI=true npm run test"
-    }
-  },
-  "lint-staged": {
-    "src/**/*.ts": [
-      "eslint --fix --ext .ts .",
-      "cross-env CI=true npm run test --findRelatedTests"
-    ]
-  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
