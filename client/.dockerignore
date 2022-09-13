@@ -1,0 +1,13 @@
+.dockerignore
+node_modules
+npm-debug.log
+Dockerfile
+.git
+.gitignore
+documentation
+coverage
+yarn.lock
+.yarnrc
+docs
+documentation
+aws

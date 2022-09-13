@@ -1,0 +1,25 @@
+{
+  "bracketSpacing": true,
+  "endOfLine": "lf",
+  "singleQuote": true,
+  "semi": true,
+  "tabWidth": 2,
+  "useTabs": false,
+  "importOrderSeparation": true,
+  "importOrder": [
+    "^assets/(.*)$",
+    "^components/(.*)$",
+    "^constants/(.*)$",
+    "^factory/(.*)$",
+    "^hooks/(.*)$",
+    "^pages/(.*)$",
+    "^routes/(.*)$",
+    "^services/(.*)$",
+    "^store/(.*)$",
+    "^styles/(.*)$",
+    "^translate/(.*)$",
+    "^utils/(.*)$",
+    "^[./]"
+  ],
+  "experimentalBabelParserPluginsList": ["jsx", "typescript"]
+}
