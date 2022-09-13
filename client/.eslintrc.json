@@ -1,8 +1,19 @@
 {
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "jest": true
+  },
+  "settings": {
+    "import/resolver": {
+      "node": { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
+    }
+  },
   "extends": ["react-app"],
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint"],
   "rules": {
+    "import/no-anonymous-default-export": "off",
     "react-hooks/rules-of-hooks": "error",
     "no-console": "warn",
     "require-await": "error",

@@ -12,6 +12,9 @@
 /cypress/videos
 /cypress/screenshots
 
+#Sonar
+test-report.xml
+
 # production
 /build
 
