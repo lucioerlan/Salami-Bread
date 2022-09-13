@@ -9,9 +9,20 @@
     }
   },
   "lint-staged": {
-    "*.ts": [
-      "eslint src --fix --ext .ts"
+    "src/**/*.ts": [
+      "eslint --fix --ext .ts .",
+      "cross-env CI=true npm run test --findRelatedTests"
     ]
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "test:coverage": "jest --coverage --runInBand --updateSnapshot",
+    "test:clear": "jest --clearCache",
+    "test:update": "jest --updateSnapshot",
+    "lint-staged": "lint-staged"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
@@ -23,12 +34,6 @@
     "react-scripts": "5.0.1",
     "typescript": "^4.8.3",
     "web-vitals": "^2.1.4"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
