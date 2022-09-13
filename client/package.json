@@ -2,6 +2,16 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "test:coverage": "jest --coverage --runInBand --updateSnapshot",
+    "test:clear": "jest --clearCache",
+    "test:update": "jest --updateSnapshot",
+    "lint-staged": "lint-staged"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -12,12 +22,6 @@
     "react-scripts": "5.0.1",
     "typescript": "^4.8.3",
     "web-vitals": "^2.1.4"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
@@ -39,11 +43,17 @@
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^3.3.0",
+    "@types/eslint": "^8.4.6",
     "@types/node": "^18.7.17",
+    "@types/prettier": "^2.7.0",
     "@types/react": "^18.0.19",
     "@types/react-dom": "^18.0.6",
     "@typescript-eslint/eslint-plugin": "^5.37.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import-helpers": "^1.2.1",
     "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^4.3.8",
+    "lint-staged": "^13.0.3",
     "prettier": "^2.7.1"
   }
 }
