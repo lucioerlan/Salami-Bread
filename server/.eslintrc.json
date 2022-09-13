@@ -21,7 +21,12 @@
         "no-restricted-imports": [
             "error",
             {
-                "patterns": ["../*"]
+                "paths": [
+                    {
+                        "name": "lodash",
+                        "message": "Please import from lodash-es instead."
+                    }
+                ]
             }
         ],
         "@typescript-eslint/explicit-module-boundary-types": "off",

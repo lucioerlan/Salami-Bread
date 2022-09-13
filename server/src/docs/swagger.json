@@ -1,0 +1,8 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Backend Inventory System",
+        "description": "Api responsible for input/output into an inventory system"
+    }
+}
