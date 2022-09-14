@@ -1,0 +1,15 @@
+{
+    "api": {
+        "base_path": "/api/v1",
+        "swagger_path": "/",
+        "swagger_docs_path": "/docs"
+    },
+    "login": [
+        {
+            "id": "1",
+            "username": "admin@user.com",
+            "password": "123456",
+            "token": "$2a$08$lOwOg2QWDF5vVO27PJWtSudqmH2JeNJTBqhxH/.K9dzpEzgZE6DPa"
+        }
+    ]
+}
