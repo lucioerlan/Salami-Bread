@@ -8,7 +8,7 @@ networks:
     external: false
 
 services:
-################################ NGINX ################################
+  ################################ NGINX ################################
   nginx:
     container_name: nginx
     restart: always
@@ -17,51 +17,123 @@ services:
       context: ./nginx
     ports:
       - 8080:80
-
-################################ REACTJS ################################
-  client:
-    container_name: client
+  ################################ REACTJS ################################
+  frontend:
+    container_name: frontend
     build:
       dockerfile: Dockerfile
-      context: ./client
+      context: ./frontend
     expose:
       - 3000
-    networks:
-      - node-net
     volumes:
       - /app/node_modules
       - /app/src/styles
-      - ./client:/app
+      - ./frontend:/app
     environment:
       - NODE_ENV=production
     restart: on-failure
     deploy:
       restart_policy:
         condition: on-failure
-    depends_on:
-      - server
-    ports:
-      - 3000:3000
-      
-################################ NODEJS ################################
-  server:
-    container_name: server
-    build:
-      dockerfile: Dockerfile
-      context: ./server
-    expose:
-      - 5000
     networks:
       - node-net
+    depends_on:
+      - backend
+    ports:
+      - 3000:3000
+  ################################ NODEJS ################################
+  backend:
+    container_name: backend
+    build:
+      dockerfile: Dockerfile
+      context: ./backend
+    expose:
+      - 5000
     volumes:
       - /app/node_modules
-      - ./server:/app
+      - ./backend:/app
     environment:
       - NODE_ENV=production
       - PORT=5000
+      - ELASTIC_APM_SERVICE_NAME="Backend Inventory System"
+      - ELASTIC_APM_backend_URL=http://localhost:8200
+      - SECRET_JWT=secret
+      - EXPIRES_IN=300
+      - DB_TYPE=mysql
+      - DB_HOST=db
+      - DB_PORT=3306
+      - DB_USERNAME=user
+      - DB_PASSWORD=user
+      - DB_DATABASE=db
+      - DB_SYNCHRONIZE=true
+      - DB_LOGGING=true
     restart: on-failure
     deploy:
       restart_policy:
         condition: on-failure
+    networks:
+      - node-net
+    depends_on:
+      - db
     ports:
       - 5000:5000
+  ################################ ELASTICSEARCH ################################
+  elasticsearch:
+    container_name: elasticsearch
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.13.0
+    volumes:
+      - node_data:/usr/share/elasticsearch/data
+    environment:
+      - xpack.monitoring.enabled=true
+      - xpack.watcher.enabled=false
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - discovery.type=single-node
+    networks:
+      - node-net
+    ports:
+      - 9200:9200
+  ################################ KIBANA ################################
+  kibana:
+    container_name: kibana
+    image: docker.elastic.co/kibana/kibana:7.13.0
+    environment:
+      - ELASTICSEARCH_URL=http://localhost:9200
+      - xpack.apm.enabled=false
+    networks:
+      - node-net
+    depends_on:
+      - elasticsearch
+    ports:
+      - 5601:5601
+  ################################ APM backend ################################
+  apm-backend:
+    container_name: apm-backend
+    image: docker.elastic.co/apm/apm-backend:7.13.0
+    command: >
+      apm-backend -e
+        -E apm-backend.rum.enabled=true
+        -E setup.kibana.host=kibana:5601
+        -E setup.template.settings.index.number_of_replicas=0
+        -E apm-backend.kibana.enabled=true
+        -E apm-backend.kibana.host=kibana:5601
+        -E output.elasticsearch.hosts=["elasticsearch:9200"]
+    networks:
+      - node-net
+    depends_on:
+      - elasticsearch
+      - kibana
+    ports:
+      - 8200:8200
+  ################################ MYSQL ################################
+  db:
+    container_name: db
+    image: mysql:latest
+    environment:
+      - MYSQL_DATABASE=inventory
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=user
+      - MYSQL_ROOT_PASSWORD=admin
+    networks:
+      - node-net
+    ports:
+      - 3306:3306
