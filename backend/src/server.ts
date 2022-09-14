@@ -1,6 +1,6 @@
 import dotenv from 'dotenv'
 import App from './app';
-import Observability from './modules/providers/Observability.provider';
+import Observability from '@modules/providers/Observability.provider';
 
 class Server {
     start() {

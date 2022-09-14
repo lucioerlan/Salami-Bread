@@ -12,5 +12,9 @@ module.exports = {
         '\\.(jpg|ico|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
             'identity-obj-proxy',
         '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
+
+        "@modules/(.*)": "<rootDir>/src/modules/$1",
+        "@config/(.*)": "<rootDir>/src/config/$1",
+        "@utils/(.*)": "<rootDir>/src/utils/$1",
     },
 };

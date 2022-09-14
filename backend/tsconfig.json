@@ -13,6 +13,12 @@
     "resolveJsonModule": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "baseUrl": ".",
+    "paths": {
+      "@modules/*": ["./src/modules/*"],
+      "@config/*": ["./src/config/*"],
+      "@utils/*": ["./src/utils/*"]
+    }
   },
   "include": ["**/*.ts"],
   "exclude": ["node_modules"],
