@@ -1,9 +1,9 @@
-import { SessionService } from '../../services/SessionService/Session.service';
-import { UserRequestInterface } from '../../interfaces/User.interface';
+import { SessionService } from '@modules/services/SessionService/Session.service';
+import { UserRequestInterface } from '@modules/interfaces/User.interface';
 
-const SessionFacades = ({ email, password }: UserRequestInterface) => {
-    const sessionService = new SessionService();
-    return sessionService.execute({ email, password });
-};
+const sessionService = new SessionService();
+
+const SessionFacades = ({ email, password }: UserRequestInterface) =>
+    sessionService.execute({ email, password });
 
 export { SessionFacades };

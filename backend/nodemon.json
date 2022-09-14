@@ -1,5 +1,5 @@
 {
-  "watch": "**/*",
-  "ext": "ts, json",
-  "exec": "ts-node-dev src/server.ts --ignore __tests__,__mocks__"
+    "watch": "**/*",
+    "ext": "ts, json",
+    "exec": "ts-node-dev -r tsconfig-paths/register --respawn --ignore-watch node_modules --no-notify src/server.ts --ignore __tests__,__mocks__"
 }
