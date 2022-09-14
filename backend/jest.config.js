@@ -1,5 +1,5 @@
 module.exports = {
-    roots: ['./src'],
+    roots: ['./'],
     moduleFileExtensions: ['ts', 'tsx', 'js'],
     testPathIgnorePatterns: ['node_modules/'],
     transform: {
