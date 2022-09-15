@@ -1,11 +1,10 @@
 import http_status_codes from 'http-status-codes';
 import { Request, Response } from 'express';
-import { SessionFacades } from '@modules/facades/SessionFacades/Session.facade';
+import { GetAllCategoriesFacades } from '@modules/facades/CategoriesFacades/GetAllCategories.facade';
 
-export class SessionController {
+export class GetAllCategoriesController {
     async handle(request: Request, response: Response) {
-        const { email, password } = request.body;
-        const data = await SessionFacades({ email, password });
+        const data = await GetAllCategoriesFacades();
 
         if (data instanceof Error) {
             return response.status(http_status_codes.BAD_REQUEST).json(data.message);

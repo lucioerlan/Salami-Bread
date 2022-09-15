@@ -1,11 +1,11 @@
-import dotenv from 'dotenv'
+import dotenv from 'dotenv';
 import App from './app';
-import Observability from './modules/providers/Observability.provider';
+import Observability from '@modules/providers/Observability.provider';
 
 class Server {
     start() {
         const app = new App();
-        const observability= new Observability();
+        const observability = new Observability();
 
         dotenv.config();
         observability.init();

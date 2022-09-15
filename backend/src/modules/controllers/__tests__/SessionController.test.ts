@@ -1,9 +1,10 @@
 import { Request, Response } from 'express';
-import { SessionController } from '../../controllers/SessionController/Session.controller';
-import config from '../../../config';
+import { SessionController } from '@modules/controllers/SessionController/Session.controller';
+import config from '@config/default.json';
 
 jest.mock('jsonwebtoken', () => ({
-    sign: jest.fn(() => 'token'),
+    sign: jest.fn().mockImplementation(() => 'token'),
+    compare: jest.fn().mockImplementation(() => true),
 }));
 
 describe('SessionController', () => {
@@ -27,12 +28,12 @@ describe('SessionController', () => {
         expect(response.status).toHaveBeenCalledWith(200);
     });
 
-    it('should Status 400', async () => {
+    it('should Invalid password', async () => {
         const sessionController = new SessionController();
 
         const request = {
             body: {
-                email: 'invalid',
+                email: config.login[0].username,
                 password: 'invalid',
             },
         } as Request;
@@ -44,6 +45,9 @@ describe('SessionController', () => {
 
         await sessionController.handle(request, response);
 
-        expect(response.status).toHaveBeenCalledWith(400);
+        expect(response.json).toHaveBeenCalledWith({
+            message: 'Invalid password',
+            statusCode: 401,
+        });
     });
 });
