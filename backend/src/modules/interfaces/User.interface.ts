@@ -4,5 +4,5 @@ export interface UserRequestInterface {
 }
 
 export interface TokenInterface {
-    token: string;
+    access_token: string;
 }

@@ -6,8 +6,8 @@ import { Token } from '@modules/enums/Token.enum';
 import { AppError } from '@modules/errors/AppError';
 
 export class RefreshService {
-    execute({ token }: TokenInterface) {
-        const { sub, exp } = JwtHelper._decode(token) as JwtPayload;
+    execute({ access_token }: TokenInterface) {
+        const { sub, exp } = JwtHelper._decode(access_token) as JwtPayload;
 
         if (exp && exp < (new Date().getTime() + 300) / 1000) {
             return new AppError(
@@ -24,8 +24,7 @@ export class RefreshService {
         const newToken = JwtHelper._sign(user.username);
 
         return {
-            token,
-            newRefreshToken: newToken,
+            token: newToken,
             email: user.username,
             iat: new Date().getTime(),
             exp: new Date().getTime() + 300,

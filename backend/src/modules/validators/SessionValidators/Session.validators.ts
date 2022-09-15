@@ -6,5 +6,5 @@ export const SessionSchema = Joi.object({
 });
 
 export const RefreshSchema = Joi.object({
-    token: Joi.string().min(100).required(),
+    access_token: Joi.string().min(100).required(),
 });
