@@ -3,6 +3,340 @@
     "info": {
         "version": "1.0.0",
         "title": "Backend Inventory System",
-        "description": "Api responsible for input/output into an inventory system"
-    }
+        "description": "Api responsible for input/output into an inventory system",
+        "termsOfService": "https://github.com/lucioerlan/jobChallenge-FullCycle",
+        "contact": {
+            "email": "erlanlucio@hotmail.com"
+        }
+    },
+    "servers": [
+        {
+            "url": "http://localhost:5000/api/v1",
+            "variables": {}
+        }
+    ],
+    "paths": {
+        "/users/auth": {
+            "post": {
+                "tags": ["Auth"],
+                "summary": "post-auth",
+                "operationId": "post-auth",
+                "parameters": [],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/post-auth-request"
+                                    },
+                                    {
+                                        "example": {
+                                            "email": "admin@user.com",
+                                            "password": "123456"
+                                        }
+                                    }
+                                ]
+                            },
+                            "example": {
+                                "email": "admin@user.com",
+                                "password": "123456"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "headers": {}
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/users/auth/refresh": {
+            "post": {
+                "tags": ["Auth"],
+                "summary": "post-auth/refresh",
+                "operationId": "post-auth/refresh",
+                "parameters": [],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/post-authrefresh-request"
+                                    },
+                                    {
+                                        "example": {
+                                            "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NjMyMjczMjMsImV4cCI6MTY2MzIyNzYyMywic3ViIjoiYWRtaW5AdXNlci5jb20ifQ.orRuqsnI8DhDHVK9AgYUA9Qkh935f8_JohUs1La9d-o"
+                                        }
+                                    }
+                                ]
+                            },
+                            "example": {
+                                "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NjMyMjczMjMsImV4cCI6MTY2MzIyNzYyMywic3ViIjoiYWRtaW5AdXNlci5jb20ifQ.orRuqsnI8DhDHVK9AgYUA9Qkh935f8_JohUs1La9d-o"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "headers": {}
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/categories/list": {
+            "get": {
+                "tags": ["Categories"],
+                "summary": "get-categories",
+                "operationId": "get-categories",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "headers": {}
+                    }
+                },
+                "deprecated": false,
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/categories/create": {
+            "post": {
+                "tags": ["Categories"],
+                "summary": "post-categories-create",
+                "operationId": "post-categories-create",
+                "parameters": [],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/post-categories-create-request"
+                                    },
+                                    {
+                                        "example": {
+                                            "name": "Awesome category"
+                                        }
+                                    }
+                                ]
+                            },
+                            "example": {
+                                "name": "Awesome category"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "headers": {}
+                    }
+                },
+                "deprecated": false,
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/products/create": {
+            "post": {
+                "tags": ["Products"],
+                "summary": "post-products-create",
+                "operationId": "post-products-create",
+                "parameters": [],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/post-products-create-request"
+                                    },
+                                    {
+                                        "example": {
+                                            "name": "Foo hehehe",
+                                            "category_id": "1"
+                                        }
+                                    }
+                                ]
+                            },
+                            "example": {
+                                "name": "Foo hehehe",
+                                "category_id": "1"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "headers": {}
+                    }
+                },
+                "deprecated": false,
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/products/list": {
+            "get": {
+                "tags": ["Products"],
+                "summary": "get-products-pagination",
+                "operationId": "get-products-pagination",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "style": "form",
+                        "explode": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32",
+                            "example": 4
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "headers": {}
+                    }
+                },
+                "deprecated": false,
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/products/list/1": {
+            "get": {
+                "tags": ["Products"],
+                "summary": "get-product-find",
+                "operationId": "get-product-find",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "headers": {}
+                    }
+                },
+                "deprecated": false,
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "post-auth-request": {
+                "title": "post-auth-request",
+                "required": ["email", "password"],
+                "type": "object",
+                "properties": {
+                    "email": {
+                        "type": "string"
+                    },
+                    "password": {
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "email": "admin@user.com",
+                    "password": "123456"
+                }
+            },
+            "post-authrefresh-request": {
+                "title": "post-authrefresh-request",
+                "required": ["access_token"],
+                "type": "object",
+                "properties": {
+                    "access_token": {
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NjMyMjczMjMsImV4cCI6MTY2MzIyNzYyMywic3ViIjoiYWRtaW5AdXNlci5jb20ifQ.orRuqsnI8DhDHVK9AgYUA9Qkh935f8_JohUs1La9d-o"
+                }
+            },
+            "post-categories-create-request": {
+                "title": "post-categories-create-request",
+                "required": ["name"],
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "name": "Awesome category"
+                }
+            },
+            "post-products-create-request": {
+                "title": "post-products-create-request",
+                "required": ["name", "category_id"],
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "category_id": {
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "name": "Foo hehehe",
+                    "category_id": "1"
+                }
+            }
+        },
+        "securitySchemes": {
+            "bearer": {
+                "type": "http",
+                "scheme": "bearer"
+            }
+        }
+    },
+    "security": [],
+    "tags": [
+        {
+            "name": "Auth"
+        },
+        {
+            "name": "Categories"
+        },
+        {
+            "name": "Products"
+        }
+    ]
 }
