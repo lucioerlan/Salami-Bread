@@ -1,0 +1,30 @@
+import '@testing-library/jest-dom/extend-expect';
+import { render, screen } from '@testing-library/react';
+import UserEvent from '@testing-library/user-event';
+import Button from '..';
+
+describe('Button component', () => {
+  const handleClick = jest.fn();
+
+  beforeEach(() => {
+    render(
+      <Button
+        color="primary"
+        data-testid="button"
+        label="Button"
+        onClick={handleClick}
+      />
+    );
+  });
+
+  it('Should render button', () => {
+    const buttonElement = screen.getByTestId('button');
+    expect(buttonElement).toBeInTheDocument();
+  });
+
+  it('Should handle click event', async () => {
+    const buttonElement = screen.getByTestId('button');
+    await UserEvent.click(buttonElement);
+    expect(handleClick).toHaveBeenCalledTimes(1);
+  });
+});
