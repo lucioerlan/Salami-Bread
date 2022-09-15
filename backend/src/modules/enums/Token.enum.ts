@@ -3,6 +3,8 @@ export enum Token {
     TOKEN_EXPIRED = 'Token expired',
     TOKEN_NOT_PROVIDED = 'Token not provided',
     TOKEN_NOT_GENERATED = 'Token not generated',
+    TOKEN_MISSING = 'Token missing',
+    TOKEN_MALFORMED = 'Token malformed',
     ERROR_TO_GENERATE_TOKEN = 'Error to generate token',
     INVALID_PASSWORD = 'Invalid password',
     ERROR_TO_COMPARE_PASSWORD = 'Error to compare password',
