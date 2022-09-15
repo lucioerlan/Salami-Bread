@@ -3,7 +3,7 @@ import { GetAllCategoriesController } from '@modules/controllers/CategoriesContr
 import { StoreCategoriesController } from '@modules/controllers/CategoriesController/StoreCategories.controller';
 import { CategoriesSchema } from '@modules/validators/CategoriesValidators/Categories.validators';
 import ValidateBody from '@modules/middlewares/Validator.middleware';
-import { ensuredAuthenticated } from '@modules/middlewares/Authenticated.middleware';
+import EnsuredAuthenticated from '@modules/middlewares/Authenticated.middleware';
 
 const categoriesRoutes = Router();
 const getAllCategoriesController = new GetAllCategoriesController();
@@ -11,12 +11,12 @@ const storeCategoriesController = new StoreCategoriesController();
 
 categoriesRoutes
     .get('/list',
-         ensuredAuthenticated(),
+         EnsuredAuthenticated,
          getAllCategoriesController.handle)
 
     .post(
         '/create',
-        ensuredAuthenticated(),
+        EnsuredAuthenticated,
         ValidateBody(CategoriesSchema),
         storeCategoriesController.handle,
     );

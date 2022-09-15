@@ -20,7 +20,10 @@
       "@infra/*": ["./src/infra/*"]
     }
   },
-  "include": ["**/*.ts"],
+  "include": [
+    "src/**/*",
+    "jest.config.ts"
+  ],
   "exclude": ["node_modules"],
   "typeRoots": [
     "./src/@types",
