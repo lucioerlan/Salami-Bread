@@ -17,7 +17,7 @@
     "paths": {
       "@modules/*": ["./src/modules/*"],
       "@config/*": ["./src/config/*"],
-      "@utils/*": ["./src/utils/*"]
+      "@infra/*": ["./src/infra/*"]
     }
   },
   "include": ["**/*.ts"],

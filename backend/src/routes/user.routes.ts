@@ -12,7 +12,14 @@ const loginController = new SessionController();
 const refreshController = new RefreshController();
 
 userRoutes
-    .post('/auth', ValidateBody(SessionSchema), loginController.handle)
-    .post('/auth/refresh', ValidateBody(RefreshSchema), refreshController.handle);
+    .post('/auth',
+          ValidateBody(SessionSchema),
+          loginController.handle)
+
+    .post(
+        '/auth/refresh',
+        ValidateBody(RefreshSchema),
+        refreshController.handle,
+    );
 
 export { userRoutes };
