@@ -1,9 +1,9 @@
 import { Factory, Seeder } from 'typeorm-seeding';
 import { Connection } from 'typeorm';
-import { Categories } from '../../entities';
+import { Products } from '../../entities';
 
 export default class InitialDatabaseSeed implements Seeder {
     public async run(factory: Factory, connection: Connection): Promise<void> {
-        await factory(Categories)().createMany(5);
+        await factory(Products)().createMany(150);
     }
 }

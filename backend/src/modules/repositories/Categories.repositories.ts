@@ -1,5 +1,5 @@
 import { getRepository } from 'typeorm';
-import { Categories } from '@infra/entities/categories';
+import { Categories } from '@infra/entities';
 import { CategoriesRequestInterface } from '@modules/interfaces/Categories.interface';
 
 export class CategoriesRepositories {
@@ -8,6 +8,13 @@ export class CategoriesRepositories {
             .createQueryBuilder('Categories')
             .maxExecutionTime(5000)
             .getMany();
+    }
+
+    find(id: number) {
+        return getRepository(Categories)
+            .createQueryBuilder('Categories')
+            .where('Categories.id = :id', { id })
+            .getOne();
     }
 
     store({ name }: CategoriesRequestInterface) {
