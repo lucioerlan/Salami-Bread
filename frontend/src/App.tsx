@@ -1,14 +1,14 @@
-import React from 'react';
-import './App.css';
+import { useRoutes } from 'react-router-dom';
+import routes from './routes';
 
-function App() {
+const App = () => {
+  const routing = useRoutes(routes('dsd'));
+
   return (
     <div className="App" data-testid="app">
-      <header className="App-header">
-        Hello World
-      </header>
+      {routing}
     </div>
   );
-}
+};
 
 export default App;
