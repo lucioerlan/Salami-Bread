@@ -6,7 +6,10 @@
   },
   "settings": {
     "import/resolver": {
-      "node": { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
+      "node": {
+        "paths": ["src"],
+        "extensions": [".js", ".jsx"]
+      }
     }
   },
   "extends": ["react-app"],
