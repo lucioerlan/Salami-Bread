@@ -7,10 +7,6 @@ export class RefreshController {
         const { access_token } = request.body;
         const data = await RefreshFacades({ access_token });
 
-        if (data instanceof Error) {
-            return response.status(http_status_codes.BAD_REQUEST).json(data.message);
-        }
-
         return response.status(http_status_codes.OK).json(data);
     }
 }
