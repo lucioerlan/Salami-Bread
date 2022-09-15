@@ -106,16 +106,16 @@ services:
     ports:
       - 5601:5601
   ################################ APM backend ################################
-  apm-backend:
-    container_name: apm-backend
-    image: docker.elastic.co/apm/apm-backend:7.13.0
+  apm-server:
+    container_name: apm-server
+    image: docker.elastic.co/apm/apm-server:7.13.0
     command: >
-      apm-backend -e
-        -E apm-backend.rum.enabled=true
+      apm-server -e
+        -E apm-server.rum.enabled=true
         -E setup.kibana.host=kibana:5601
         -E setup.template.settings.index.number_of_replicas=0
-        -E apm-backend.kibana.enabled=true
-        -E apm-backend.kibana.host=kibana:5601
+        -E apm-server.kibana.enabled=true
+        -E apm-server.kibana.host=kibana:5601
         -E output.elasticsearch.hosts=["elasticsearch:9200"]
     networks:
       - node-net
@@ -137,4 +137,4 @@ services:
       - node-net
     ports:
       - 3306:3306
-    command: ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'admin'; FLUSH PRIVILEGES;
+    command: --default-authentication-plugin=mysql_native_password
