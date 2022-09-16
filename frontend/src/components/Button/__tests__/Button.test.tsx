@@ -9,7 +9,8 @@ describe('Button component', () => {
   beforeEach(() => {
     render(
       <Button
-        color="primary"
+        type="button"
+        color="#24292F"
         data-testid="button"
         label="Button"
         onClick={handleClick}
