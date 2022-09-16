@@ -61,7 +61,7 @@ services:
       - SECRET_JWT=secret
       - EXPIRES_IN=300
       - DB_TYPE=mysql
-      - DB_HOST=localhost
+      - DB_HOST=db
       - DB_PORT=3306
       - DB_USERNAME=root
       - DB_PASSWORD=admin
