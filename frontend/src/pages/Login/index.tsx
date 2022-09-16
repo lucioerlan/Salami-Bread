@@ -17,7 +17,7 @@ const Login = () => {
   const { setSettings } = useSettings();
 
   const tryToLogin = async (values: AuthUser) => {
-    const { data } = await authUser({
+    const data = await authUser({
       email: values.email,
       password: values.password,
     });
