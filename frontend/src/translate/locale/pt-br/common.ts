@@ -1,9 +1,32 @@
 const translations = {
   button: {
     back: 'Voltar',
+    isSubmitting: 'Por favor, aguarde...',
+    submit: 'Salvar',
+    enter: 'Entrar',
   },
   chip: {
     back: 'Voltar',
+  },
+  input: {
+    email: 'E-mail',
+    password: 'Senha',
+    errorEmail: {
+      type: {
+        message: 'Formato de endereço de e-mail inválido',
+      },
+      required: {
+        message: 'E-mail é obrigatório',
+      },
+    },
+    errorPass: {
+      type: {
+        message: 'A senha deve ter no mínimo 3 caracteres',
+      },
+      required: {
+        message: 'Senha requerida',
+      },
+    },
   },
   tabs: {
     notFound: 'Página Não Encontrada',

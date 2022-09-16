@@ -1,9 +1,31 @@
 const translations = {
   button: {
     back: 'Back',
+    isSubmitting: 'Please wait...',
+    submit: 'Save',
   },
   chip: {
     back: 'Back',
+  },
+  input: {
+    email: 'Email',
+    password: 'Password',
+    errorEmail: {
+      type: {
+        message: 'Invalid email address format',
+      },
+      required: {
+        message: 'Email is required',
+      },
+    },
+    errorPass: {
+      type: {
+        message: 'The password must have at least 3 characters',
+      },
+      required: {
+        message: 'Password required',
+      },
+    },
   },
   tabs: {
     notFound: 'Page Not Found',

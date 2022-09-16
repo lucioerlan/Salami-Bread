@@ -1,12 +1,5 @@
 import styled from 'styled-components';
 
-export const LoginWrapper = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-flow: row;
-`;
-
 export const PasswordView = styled.div`
   border: 0;
   cursor: pointer;

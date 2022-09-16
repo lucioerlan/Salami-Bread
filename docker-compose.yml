@@ -31,6 +31,7 @@ services:
       - ./frontend:/app
     environment:
       - NODE_ENV=production
+      - REACT_APP_API_URL=http://localhost:5000/api
     restart: on-failure
     deploy:
       restart_policy:
