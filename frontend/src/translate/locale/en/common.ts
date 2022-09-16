@@ -20,7 +20,7 @@ const translations = {
     },
     errorPass: {
       type: {
-        message: 'The password must have at least 3 characters',
+        message: 'The password must have at least 6 characters',
       },
       required: {
         message: 'Password required',

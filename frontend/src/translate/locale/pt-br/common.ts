@@ -21,7 +21,7 @@ const translations = {
     },
     errorPass: {
       type: {
-        message: 'A senha deve ter no mínimo 3 caracteres',
+        message: 'A senha deve ter no mínimo 6 caracteres',
       },
       required: {
         message: 'Senha requerida',
