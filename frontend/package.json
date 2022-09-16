@@ -14,12 +14,17 @@
     "lint-staged": "lint-staged"
   },
   "dependencies": {
+    "@types/lodash": "^4.14.185",
     "axios": "^0.27.2",
     "formik": "^2.2.9",
+    "i18next": "^21.9.1",
+    "i18next-browser-languagedetector": "^6.1.5",
     "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
+    "react-i18next": "^11.18.6",
     "react-router-dom": "^6.4.0",
     "react-scripts": "5.0.1",
     "react-toastify": "^9.0.8",
