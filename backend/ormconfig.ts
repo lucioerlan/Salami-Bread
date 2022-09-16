@@ -2,7 +2,7 @@ import { Categories, Products } from './src/infra/entities';
 
 export default {
     type: process.env.DB_TYPE,
-    host: process.env.HOST ?? 'localhost',
+    host: process.env.DB_HOST || 'db',
     port: process.env.DB_PORT ? parseInt(process.env.DB_PORT, 10) : 3306,
     username: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,

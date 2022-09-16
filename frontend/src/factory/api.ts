@@ -9,7 +9,9 @@ api.interceptors.request.use((config: AxiosRequestConfig) => {
   const settings = restoreSettings();
 
   if (settings && settings.token) {
-    config.headers = settings.token;
+    config.headers = {
+      Authorization: `Bearer ${settings.token}`,
+    };
   }
 
   return config;

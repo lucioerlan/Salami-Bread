@@ -7,7 +7,7 @@ const SettingsContext = createContext({
     token: '',
     isLoggedIn: false,
   },
-  setSettings: () => {},
+  setSettings: (settings: object) => {},
 });
 
 const defaultSettings = {

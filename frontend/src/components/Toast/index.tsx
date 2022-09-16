@@ -1,10 +1,11 @@
-import { StyledToastContainer } from './styled';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Toast = () => (
-    <StyledToastContainer
+    <ToastContainer
       position="bottom-center"
       autoClose={4000}
-      hideProgressBar
+      hideProgressBar={false}
       newestOnTop={false}
       closeOnClick
       rtl={false}

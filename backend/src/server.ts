@@ -4,11 +4,11 @@ import Observability from '@modules/providers/Observability.provider';
 
 class Server {
     start() {
-        const app = new App();
         const observability = new Observability();
-
-        dotenv.config();
         observability.init();
+
+        const app = new App();
+        dotenv.config();
         app.build();
         app.start();
     }
