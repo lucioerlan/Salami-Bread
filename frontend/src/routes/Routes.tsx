@@ -1,17 +1,18 @@
 import { Navigate } from 'react-router-dom';
 import DashboardLayout from 'src/layouts/DashboardLayout';
 import MainLayout from 'src/layouts/MainLayout';
+import DashboardView from 'src/pages/Dashboard';
 import LoginView from 'src/pages/Login';
 import NotFoundView from 'src/pages/NotFound';
 
-const routes = (isLoggedIn: string) => [
+const routes = (isLoggedIn: boolean) => [
   {
     path: '/app',
     element: isLoggedIn ? <DashboardLayout /> : <Navigate to="/login" />,
     children: [
       {
         path: 'dashboard',
-        element: isLoggedIn ? <h1>tessst</h1> : <Navigate to="/login" />,
+        element: isLoggedIn ? <DashboardView /> : <Navigate to="/login" />,
       },
       { path: '*', element: <Navigate to="/404" /> },
     ],

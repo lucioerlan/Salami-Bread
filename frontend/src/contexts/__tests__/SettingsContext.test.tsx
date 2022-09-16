@@ -6,7 +6,7 @@ describe('SettingsContext', () => {
   it('Should render SettingsContext', () => {
     const settings = {
       token: '',
-      isLoggedIn: '',
+      isLoggedIn: false,
     };
 
     const { container } = render(

@@ -5,7 +5,7 @@ import { storeSettings } from 'src/utils/settings';
 const SettingsContext = createContext({
   settings: {
     token: '',
-    isLoggedIn: '',
+    isLoggedIn: false,
   },
   setSettings: () => {},
 });
@@ -21,7 +21,7 @@ export function SettingsProvider({
 }: {
   settings: {
     token: string;
-    isLoggedIn: string;
+    isLoggedIn: boolean;
   };
   children: ReactNode;
 }) {
