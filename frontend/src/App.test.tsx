@@ -14,7 +14,7 @@ describe('App', () => {
     rtlContainer = container;
   });
 
-  it('should matches with snapshot', () => {
-    expect(rtlContainer.firstChild).toMatchSnapshot();
+  it('should render App', () => {
+    expect(rtlContainer.firstChild).toBeDefined();
   });
 });

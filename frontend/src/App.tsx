@@ -1,13 +1,17 @@
 import { useRoutes } from 'react-router-dom';
+import { GlobalStyle } from './components';
+import useSettings from './hooks/useSettings';
 import routes from './routes';
 
 const App = () => {
-  const routing = useRoutes(routes('dsd'));
+  const { settings } = useSettings();
+  const routing = useRoutes(routes(settings.isLoggedIn));
 
   return (
-    <div className="App" data-testid="app">
+    <>
+      <GlobalStyle />
       {routing}
-    </div>
+    </>
   );
 };
 

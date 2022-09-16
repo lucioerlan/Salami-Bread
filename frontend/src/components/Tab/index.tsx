@@ -1,10 +1,10 @@
 import React, { forwardRef } from 'react';
 import { Helmet } from 'react-helmet';
 
-export type TabProps = {
-  children?: React.ReactNode;
-  dataTestId?: string;
-  title?: string;
+type TabProps = {
+  children: React.ReactNode;
+  title: string;
+  'data-testid'?: string;
 };
 
 const Tab = forwardRef<HTMLDivElement, TabProps>(

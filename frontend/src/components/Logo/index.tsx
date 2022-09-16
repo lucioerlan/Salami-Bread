@@ -1,8 +1,8 @@
 import { LogoWrapper } from './styled';
 
 export type LogoProps = {
-  src?: string;
-  alt?: string;
+  src: string;
+  alt: string;
   'data-testid'?: string;
 };
 
