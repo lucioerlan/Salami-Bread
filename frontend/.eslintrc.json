@@ -6,7 +6,10 @@
   },
   "settings": {
     "import/resolver": {
-      "node": { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
+      "node": {
+        "paths": ["src"],
+        "extensions": [".js", ".jsx"]
+      }
     }
   },
   "extends": ["react-app"],
@@ -14,6 +17,7 @@
   "plugins": ["@typescript-eslint"],
   "rules": {
     "import/no-anonymous-default-export": "off",
+    "jsx-a11y/anchor-is-valid": "off",
     "react-hooks/rules-of-hooks": "error",
     "no-console": "warn",
     "require-await": "error",

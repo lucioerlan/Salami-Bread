@@ -1,14 +1,18 @@
-import React from 'react';
-import './App.css';
+import { useRoutes } from 'react-router-dom';
+import { GlobalStyle } from './components';
+import useSettings from './hooks/useSettings';
+import routes from './routes';
 
-function App() {
+const App = () => {
+  const { settings } = useSettings();
+  const routing = useRoutes(routes(settings.isLoggedIn));
+
   return (
-    <div className="App" data-testid="app">
-      <header className="App-header">
-        Hello World
-      </header>
-    </div>
+    <>
+      <GlobalStyle />
+      {routing}
+    </>
   );
-}
+};
 
 export default App;
