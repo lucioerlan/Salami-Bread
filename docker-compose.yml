@@ -14,7 +14,7 @@ services:
     restart: always
     build:
       dockerfile: Dockerfile
-      context: ./nginx
+      context: ./.nginx
     ports:
       - 8080:80
   ################################ REACTJS ################################

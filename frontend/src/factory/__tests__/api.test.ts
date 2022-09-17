@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-import api from 'src/app/factory/api';
+import api from 'src/factory/api';
 
 describe('ApiFactory', () => {
   jest.mock('axios', () => ({
