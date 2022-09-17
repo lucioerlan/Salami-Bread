@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig } from 'axios';
-import { refreshToken } from 'src/app/services/auth';
-import { restoreSettings, storeSettings } from 'src/app/utils/settings';
+import { refreshToken } from 'src/services/auth';
+import { restoreSettings, storeSettings } from 'src/utils/settings';
 
 const api = axios.create({
   baseURL: process.env.REACT_APP_API_URL,

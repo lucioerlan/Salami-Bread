@@ -1,4 +1,4 @@
-import { EyeOff, EyeOn } from 'src/app/assets';
+import { EyeOff, EyeOn } from 'src/assets';
 import { PasswordView } from '../styled';
 
 type PasswordProps = {
