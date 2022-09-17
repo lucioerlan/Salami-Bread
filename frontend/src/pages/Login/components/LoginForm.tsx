@@ -1,9 +1,9 @@
 import { FormikProps } from 'formik';
 import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
-import { FullcycleLogo, Mail, Pass } from 'src/assets';
-import { Frame, Button, ErrorMessage, Input, Form, Logo } from 'src/components';
-import { FormValues, OtherProps } from 'src/types/formik';
+import { FullcycleLogo, Mail, Pass } from 'src/app/assets';
+import { Frame, Button, ErrorMessage, Input, Form, Logo } from 'src/app/components';
+import { FormValues, OtherProps } from 'src/app/types/formik';
 
 import { Password } from './Password';
 

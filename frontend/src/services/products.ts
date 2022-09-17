@@ -1,4 +1,4 @@
-import api from 'src/factory/api';
+import api from 'src/app/factory/api';
 
 const getAllProducts = async (page: number) => {
   try {

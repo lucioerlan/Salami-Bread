@@ -1,5 +1,5 @@
-import api from 'src/factory/api';
-import { AuthUser } from 'src/interfaces/auth';
+import api from 'src/app/factory/api';
+import { AuthUser } from 'src/app/interfaces/auth';
 
 const authUser = async ({ email, password }: AuthUser) => {
   try {

@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
-import { Tab, VisitorTime } from 'src/components';
-import useSettings from 'src/hooks/useSettings';
+import { Tab, VisitorTime } from 'src/app/components';
+import useSettings from 'src/app/hooks/useSettings';
 
 import { DashboardMenu } from './components/DashboardMenu';
 import { DashboardContainer, Title } from './styled';

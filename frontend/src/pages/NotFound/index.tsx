@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { Tab } from 'src/components';
+import { Tab } from 'src/app/components';
 
 import { NotfoundContainer, Title, Subtitle } from './styled';
 
