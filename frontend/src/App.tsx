@@ -1,4 +1,7 @@
+import { Provider as StoreProvider } from 'react-redux';
 import { useRoutes } from 'react-router-dom';
+import store from 'src/store';
+
 import { GlobalStyle } from './components';
 import useSettings from './hooks/useSettings';
 import routes from './routes';
@@ -10,7 +13,7 @@ const App = () => {
   return (
     <>
       <GlobalStyle />
-      {routing}
+      <StoreProvider store={store}>{routing}</StoreProvider>
     </>
   );
 };

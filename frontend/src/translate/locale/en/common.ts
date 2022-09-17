@@ -27,10 +27,16 @@ const translations = {
       },
     },
   },
+  menus: {
+    categories: 'View categories',
+    products: 'View products',
+  },
   tabs: {
     notFound: 'Page Not Found',
     login: 'Login',
     dashboard: 'Dashboard',
+    categories: 'Categories',
+    products: 'Products',
   },
   titles: {
     notFoundPage: 'Oops, The page you are looking for is not here! 😅',

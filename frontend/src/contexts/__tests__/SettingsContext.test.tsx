@@ -6,6 +6,7 @@ describe('SettingsContext', () => {
   it('Should render SettingsContext', () => {
     const settings = {
       token: '',
+      email : '',
       isLoggedIn: false,
     };
 
