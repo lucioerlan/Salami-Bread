@@ -27,11 +27,10 @@ services:
       - 3000
     volumes:
       - /app/node_modules
-      - /app/src/styles
       - ./frontend:/app
     environment:
       - NODE_ENV=production
-      - REACT_APP_API_URL=http://localhost:5000/api
+      - REACT_APP_API_URL=http://localhost:5000/api/v1
     restart: on-failure
     deploy:
       restart_policy:
