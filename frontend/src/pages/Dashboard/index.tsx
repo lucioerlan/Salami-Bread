@@ -1,12 +1,22 @@
 import { useTranslation } from 'react-i18next';
-import { Tab } from 'src/components';
+import { Tab, VisitorTime } from 'src/components';
+import useSettings from 'src/hooks/useSettings';
+
+import { DashboardMenu } from './components/DashboardMenu';
+import { DashboardContainer, Title } from './styled';
 
 const Dashboard = () => {
   const { t } = useTranslation();
+  const { settings } = useSettings();
+  const user = settings?.email;
 
   return (
-    <Tab title={t('tabs.dashboard')}>
-      <div>Dashboard</div>
+    <Tab title={t('tabs.dashboard')} data-testid="dashboard">
+      <DashboardContainer>
+        <Title>{VisitorTime(user)}</Title>
+
+        <DashboardMenu />
+      </DashboardContainer>
     </Tab>
   );
 };

@@ -14,7 +14,7 @@ export const NotfoundContainer = styled.div`
 `;
 
 export const Title = styled.h3`
-font-size: 24px;
+font-size: 20px;
 line-height: 32px;
 letter-spacing: .5px;
 font-weight: 600;
@@ -32,7 +32,7 @@ color: #434C56;
 
 export const Subtitle = styled.p`
 margin-bottom: 32px;
-font-size: 16px;
+font-size: 15px;
 line-height: 24px;
 letter-spacing: .25px;
 font-weight: 400;
