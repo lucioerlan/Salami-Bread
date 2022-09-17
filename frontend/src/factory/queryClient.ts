@@ -1,6 +1,4 @@
 import { QueryClient } from 'react-query';
-import { createWebStoragePersistor } from 'react-query/createWebStoragePersistor-experimental';
-import { persistQueryClient } from 'react-query/persistQueryClient-experimental';
 
 export const queryClient = new QueryClient({
   defaultOptions: {
@@ -13,11 +11,3 @@ export const queryClient = new QueryClient({
   },
 });
 
-const localStoragePersistor = createWebStoragePersistor({
-  storage: window.localStorage,
-});
-
-persistQueryClient({
-  queryClient,
-  persistor: localStoragePersistor,
-});
