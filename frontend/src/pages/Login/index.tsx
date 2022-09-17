@@ -26,6 +26,7 @@ const Login = () => {
       if (data && data.token) {
         setSettings({
           token: data.token,
+          email: data.email,
           isLoggedIn: true,
         });
 
@@ -33,7 +34,6 @@ const Login = () => {
       } else {
         toast.warning(t('warning.credentials'));
       }
-
     } catch (error) {
       toast.error(t('error.login'));
     }
@@ -42,7 +42,11 @@ const Login = () => {
   return (
     <Tab title={t('tabs.login')} data-testid="login">
       <Formik
-        initialValues={FormContainer.INITIAL_VALUES.FormLogin}
+        initialValues={
+           FormContainer
+          .INITIAL_VALUES
+          .FormLogin
+          }
         onSubmit={tryToLogin}
         validationSchema={LoginSchema()}
         component={LoginForm}

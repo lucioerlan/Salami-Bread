@@ -1,10 +1,15 @@
-export { default as Block } from './Block';
+export { default as Frame } from './Frame';
 export { default as Button } from './Button';
+export { default as Card } from './Card';
 export { default as Chip } from './Chip';
 export { default as ErrorMessage } from './Errors';
 export { default as Form } from './Form';
+export { default as Gallery } from './Gallery';
+export { default as ImageButton } from './ImageButton';
 export { default as Input } from './Input';
 export { default as Logo } from './Logo';
+export { default as Spinner } from './Spinner';
+export { default as VisitorTime } from './Welcome';
 export { default as Tab } from './Tab';
 export { default as Toast } from './Toast';
 export { GlobalStyle } from './Styled/GlobalStyled';
