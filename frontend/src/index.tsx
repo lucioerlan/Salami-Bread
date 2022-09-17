@@ -1,8 +1,8 @@
 import { createRoot } from 'react-dom/client';
 import { QueryClientProvider } from 'react-query';
 import { BrowserRouter } from 'react-router-dom';
-import { SettingsProvider } from 'src/contexts/SettingsContext';
-import { restoreSettings } from 'src/utils/settings';
+import { SettingsProvider } from 'src/app/contexts/SettingsContext';
+import { restoreSettings } from 'src/app/utils/settings';
 
 import App from './App';
 import { queryClient } from './factory/queryClient';

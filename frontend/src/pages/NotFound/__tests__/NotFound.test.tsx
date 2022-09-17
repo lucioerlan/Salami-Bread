@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom/extend-expect';
 import { render, screen } from '@testing-library/react';
-import NotFoundView from 'src/pages/NotFound';
+import NotFoundView from 'src/app/pages/NotFound';
 
 jest.mock('react-router-dom', () => ({
   useNavigate: () => jest.fn(),

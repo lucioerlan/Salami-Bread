@@ -1,0 +1,97 @@
+name: Quality Code
+
+on: [push]
+
+jobs:
+  quality:
+    name: Quality Code
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version:
+          - "16"
+        database-name:
+          - inventory
+        database-user:
+          - user
+        database-password:
+          - user
+        database-password-admin:
+          - admin
+        database-host:
+          - db
+        database-port:
+          - 3306
+        database-dialect:
+          - mysql
+        base-url:
+          - http://localhost:5000/api/v1
+
+    services:
+      mysql:
+        image: mysql:latest
+        env:
+          MYSQL_DATABASE: ${{ matrix.database-name }}
+          MYSQL_USER: ${{ matrix.database-user }}
+          MYSQL_PASSWORD: ${{ matrix.database-password }}
+          MYSQL_ROOT_PASSWORD: ${{ matrix.database-password-admin }}
+        options: >-
+          --health-cmd="mysqladmin ping"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+        ports:
+          - 3306:3306
+  nodejs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: ./backend
+
+    steps:
+      - name: Check out Git Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Setup and Test
+        env:
+          DB_TYPE: ${{ matrix.database-dialect }}
+          DB_HOST: ${{ matrix.database-host }}
+          DB_USERNAME: ${{ matrix.database-user }}
+          DB_PASSWORD: ${{ matrix.database-password-admin }}
+          DB_DATABASE: ${{ matrix.database-name }}
+          DB_PORT: ${{ matrix.database-port }}
+          SECRET_JWT: ${{ secrets.SECRET_JWT }}
+          EXPIRES_IN: 300
+
+  react:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: ./frontend
+
+    steps:
+      - name: Check out Git Repository
+        uses: actions/checkout@v2
+
+      - name: Set up React
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Setup and Test
+        env:
+          REACT_APP_API_URL: ${{ matrix.base-url }}

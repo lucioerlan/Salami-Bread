@@ -2,12 +2,12 @@ import { Formik } from 'formik';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { Tab, Toast } from 'src/components';
-import { AuthUser } from 'src/interfaces/auth';
-import { authUser } from 'src/services/auth';
-import { LoginSchema } from 'src/validators/schemas';
-import FormContainer from 'src/constants/form-container';
-import useSettings from 'src/hooks/useSettings';
+import { Tab, Toast } from 'src/app/components';
+import { AuthUser } from 'src/app/interfaces/auth';
+import { authUser } from 'src/app/services/auth';
+import { LoginSchema } from 'src/app/validators/schemas';
+import FormContainer from 'src/app/constants/form-container';
+import useSettings from 'src/app/hooks/useSettings';
 
 import { LoginForm } from './components/LoginForm';
 

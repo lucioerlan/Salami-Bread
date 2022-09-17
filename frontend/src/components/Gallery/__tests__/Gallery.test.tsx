@@ -1,10 +1,10 @@
 import '@testing-library/jest-dom/extend-expect';
 import { render, screen } from '@testing-library/react';
-import { dataMocks } from 'src/__mocks__/dataMocks';
+import { dataMocks } from 'src/app/__mocks__/dataMocks';
 
 import Gallery from '..';
 
-jest.mock('src/store/shared', () => ({
+jest.mock('src/app/store/shared', () => ({
   useAppSelector: () => [dataMocks],
 }));
 

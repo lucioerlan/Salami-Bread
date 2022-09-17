@@ -12,8 +12,8 @@
     "test:clear": "jest --clearCache",
     "test:update": "jest --updateSnapshot",
     "lint-staged": "lint-staged",
-    "format": "prettier --write src/**/*.{js,jsx,ts,tsx}",
-    "lint": "eslint src/**/*.{js,jsx,ts,tsx}",
+    "format": "prettier --write src/app/**/*.{js,jsx,ts,tsx}",
+    "lint": "eslint src/app/**/*.{js,jsx,ts,tsx}",
     "cypress:open": "cypress open",
     "cypress:all": "cypress run"
   },

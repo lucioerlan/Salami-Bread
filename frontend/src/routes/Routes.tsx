@@ -1,11 +1,11 @@
 import { Navigate } from 'react-router-dom';
-import DashboardLayout from 'src/layouts/DashboardLayout';
-import MainLayout from 'src/layouts/MainLayout';
-import CategoriesView from 'src/pages/Categories';
-import DashboardView from 'src/pages/Dashboard';
-import LoginView from 'src/pages/Login';
-import NotFoundView from 'src/pages/NotFound';
-import ProductsView from 'src/pages/Products';
+import DashboardLayout from 'src/app/layouts/DashboardLayout';
+import MainLayout from 'src/app/layouts/MainLayout';
+import CategoriesView from 'src/app/pages/Categories';
+import DashboardView from 'src/app/pages/Dashboard';
+import LoginView from 'src/app/pages/Login';
+import NotFoundView from 'src/app/pages/NotFound';
+import ProductsView from 'src/app/pages/Products';
 
 const routes = (isLoggedIn: boolean) => [
   {

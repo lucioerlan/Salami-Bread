@@ -1,11 +1,11 @@
 import { Router } from 'express';
-import { SessionController } from '@modules/controllers/SessionController/Session.controller';
+import { SessionController } from 'src/app/controllers/SessionController/Session.controller';
 import {
     SessionSchema,
     RefreshSchema,
-} from '@modules/validators/SessionValidators/Session.validators';
-import { RefreshController } from '@modules/controllers/RefreshController/Refresh.controller';
-import ValidateBody from '@modules/middlewares/Validator.middleware';
+} from 'src/app/validators/SessionValidators/Session.validators';
+import { RefreshController } from 'src/app/controllers/RefreshController/Refresh.controller';
+import ValidateBody from 'src/app/middlewares/Validator.middleware';
 
 const userRoutes = Router();
 const loginController = new SessionController();
@@ -15,7 +15,6 @@ userRoutes
     .post('/auth',
           ValidateBody(SessionSchema),
           loginController.handle)
-
     .post(
         '/auth/refresh',
         ValidateBody(RefreshSchema),

@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom/extend-expect';
 import { render, screen } from '@testing-library/react';
-import { dataMocks } from 'src/__mocks__/dataMocks';
-import Categories from 'src/pages/Categories';
+import { dataMocks } from 'src/app/__mocks__/dataMocks';
+import Categories from 'src/app/pages/Categories';
 
 jest.mock('react-query', () => ({
   useQuery: () => ({
@@ -10,7 +10,7 @@ jest.mock('react-query', () => ({
   }),
 }));
 
-jest.mock('src/store/shared', () => ({
+jest.mock('src/app/store/shared', () => ({
   useAppDispatch: () => jest.fn(),
   useAppSelector: () => [dataMocks],
 }));
