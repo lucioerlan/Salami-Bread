@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import { ImageButton } from 'src/app/components';
+import { ImageButton } from 'src/components';
 
 import { Box } from '../styled';
 

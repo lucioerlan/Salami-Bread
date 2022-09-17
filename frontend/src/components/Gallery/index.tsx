@@ -1,5 +1,5 @@
-import { RootState } from 'src/app/store';
-import { useAppSelector } from 'src/app/store/shared';
+import { RootState } from 'src/store';
+import { useAppSelector } from 'src/store/shared';
 
 import Cards from '../Card';
 import {

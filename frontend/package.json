@@ -2,6 +2,12 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "pre-push": "npm run test"
+    }
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -12,8 +18,8 @@
     "test:clear": "jest --clearCache",
     "test:update": "jest --updateSnapshot",
     "lint-staged": "lint-staged",
-    "format": "prettier --write src/app/**/*.{js,jsx,ts,tsx}",
-    "lint": "eslint src/app/**/*.{js,jsx,ts,tsx}",
+    "format": "prettier --write src/**/*.{js,jsx,ts,tsx}",
+    "lint": "eslint src/**/*.{js,jsx,ts,tsx}",
     "cypress:open": "cypress open",
     "cypress:all": "cypress run"
   },
@@ -87,7 +93,6 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.0.3",
     "jest-environment-jsdom": "^29.0.3",
-    "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
     "ts-jest": "^29.0.0",
     "ts-node": "^10.5.0",

@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-import * as useSettings from 'src/app/hooks/useSettings';
+import * as useSettings from 'src/hooks/useSettings';
 
 jest.mock('react', () => {
   const ActualReact = jest.requireActual('react');

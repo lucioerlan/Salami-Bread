@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom/extend-expect';
 import { render } from '@testing-library/react';
-import { SettingsProvider } from 'src/app/contexts/SettingsContext';
+import { SettingsProvider } from 'src/contexts/SettingsContext';
 
 describe('SettingsContext', () => {
   it('Should render SettingsContext', () => {

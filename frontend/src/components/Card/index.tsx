@@ -1,4 +1,4 @@
-import { Catalog } from 'src/app/interfaces/catalog';
+import { Catalog } from 'src/interfaces/catalog';
 import {
   Card,
   BookImg,
