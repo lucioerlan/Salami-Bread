@@ -1,9 +1,9 @@
-export interface FormValues {
+export type FormValues = {
   email: string;
   password: string;
 }
 
-export interface OtherProps {
+export type OtherProps = {
   errors: {
     login?: boolean;
     email?: string;
