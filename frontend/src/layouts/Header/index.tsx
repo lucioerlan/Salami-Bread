@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
-import useSettings from 'src/hooks/useSettings';
+import useSettings from 'src/app/hooks/useSettings';
 
 import { LogoutContainer, BackContainer } from './styled';
 

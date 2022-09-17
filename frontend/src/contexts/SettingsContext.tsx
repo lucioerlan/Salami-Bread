@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import { createContext, useState, ReactNode } from 'react';
-import { storeSettings } from 'src/utils/settings';
+import { storeSettings } from 'src/app/utils/settings';
 
 const SettingsContext = createContext({
   settings: {

@@ -1,9 +1,9 @@
 import { Router } from 'express';
-import { GetAllCategoriesController } from '@modules/controllers/CategoriesController/GetAllCategories.controller';
-import { StoreCategoriesController } from '@modules/controllers/CategoriesController/StoreCategories.controller';
-import { CategoriesSchema } from '@modules/validators/CategoriesValidators/Categories.validators';
-import ValidateBody from '@modules/middlewares/Validator.middleware';
-import EnsuredAuthenticated from '@modules/middlewares/Authenticated.middleware';
+import { GetAllCategoriesController } from 'src/app/controllers/CategoriesController/GetAllCategories.controller';
+import { StoreCategoriesController } from 'src/app/controllers/CategoriesController/StoreCategories.controller';
+import { CategoriesSchema } from 'src/app/validators/CategoriesValidators/Categories.validators';
+import ValidateBody from 'src/app/middlewares/Validator.middleware';
+import EnsuredAuthenticated from 'src/app/middlewares/Authenticated.middleware';
 
 const categoriesRoutes = Router();
 const getAllCategoriesController = new GetAllCategoriesController();
@@ -13,7 +13,6 @@ categoriesRoutes
     .get('/list',
          EnsuredAuthenticated,
          getAllCategoriesController.handle)
-
     .post(
         '/create',
         EnsuredAuthenticated,

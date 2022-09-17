@@ -1,6 +1,6 @@
 import { Provider as StoreProvider } from 'react-redux';
 import { useRoutes } from 'react-router-dom';
-import store from 'src/store';
+import store from 'src/app/store';
 
 import { GlobalStyle } from './components';
 import useSettings from './hooks/useSettings';

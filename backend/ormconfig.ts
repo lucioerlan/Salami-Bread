@@ -1,4 +1,4 @@
-import { Categories, Products } from './src/infra/entities';
+import { Categories, Products } from './src/app/entities';
 
 export default {
     type: process.env.DB_TYPE,
@@ -11,11 +11,11 @@ export default {
     logging: process.env.DB_LOGGING,
     insecureAuth: true,
     entities: [Categories, Products],
-    migrations: ['./src/infra/migrations/*.ts'],
-    seeds: ['src/infra/seeding/seeds/**/*{.ts,.js}'],
-    factories: ['src/infra/seeding/factories/**/*{.ts,.js}'],
+    migrations: ['./src/app/database/migrations/*.ts'],
+    seeds: ['src/app/database/seeding/seeds/**/*{.ts,.js}'],
+    factories: ['src/app/database/seeding/factories/**/*{.ts,.js}'],
     cli: {
-        migrationsDir: './src/infra/migrations',
-        entitiesDir: './src/infra/entities',
+        migrationsDir: './src/app/database/migrations',
+        entitiesDir: './src/app/entities',
     },
 };

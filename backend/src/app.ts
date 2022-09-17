@@ -4,8 +4,8 @@ import cors from 'cors';
 import express, { Request, Response, NextFunction } from 'express';
 import helmet from 'helmet';
 import { routes } from './routes';
-import LoggerProvider from '@modules/providers/Logger.provider';
-import '@infra/database';
+import LoggerProvider from './app/providers/Logger.provider';
+import 'src/database';
 
 const DEFAULT_PORT = 5000;
 const PORT = process.env.PORT || DEFAULT_PORT;

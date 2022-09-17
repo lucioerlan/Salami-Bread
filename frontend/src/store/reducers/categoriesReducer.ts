@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { Catalog } from 'src/interfaces/catalog';
+import { Catalog } from 'src/app/interfaces/catalog';
 
 const initialState: Catalog[] = [];
 

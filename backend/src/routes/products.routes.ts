@@ -1,10 +1,10 @@
 import { Router } from 'express';
-import { StoreProductsController } from '@modules/controllers/ProductsController/StoreProducts.controller';
-import { GetAllProductsController } from '@modules/controllers/ProductsController/GetAllProducts.controller';
-import { FindProductController } from '@modules/controllers/ProductsController/FindProduct.controller';
-import { ProductsSchema } from '@modules/validators/ProductsValidators/Products.validators';
-import ValidateBody from '@modules/middlewares/Validator.middleware';
-import EnsuredAuthenticated from '@modules/middlewares/Authenticated.middleware';
+import { StoreProductsController } from 'src/app/controllers/ProductsController/StoreProducts.controller';
+import { GetAllProductsController } from 'src/app/controllers/ProductsController/GetAllProducts.controller';
+import { FindProductController } from 'src/app/controllers/ProductsController/FindProduct.controller';
+import { ProductsSchema } from 'src/app/validators/ProductsValidators/Products.validators';
+import ValidateBody from 'src/app/middlewares/Validator.middleware';
+import EnsuredAuthenticated from 'src/app/middlewares/Authenticated.middleware';
 
 const productsRoutes = Router();
 const storeProductsController = new StoreProductsController();

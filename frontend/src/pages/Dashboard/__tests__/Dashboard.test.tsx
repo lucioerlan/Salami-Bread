@@ -1,12 +1,12 @@
 import '@testing-library/jest-dom/extend-expect';
 import { render, screen } from '@testing-library/react';
-import Dashboard from 'src/pages/Dashboard';
+import Dashboard from 'src/app/pages/Dashboard';
 
 jest.mock('react-router-dom', () => ({
   useNavigate: () => jest.fn(),
 }));
 
-jest.mock('src/hooks/useSettings', () => ({
+jest.mock('src/app/hooks/useSettings', () => ({
   __esModule: true,
   default: () => ({
     settings: {
