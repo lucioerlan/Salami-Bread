@@ -2,7 +2,7 @@ import { FormikProps } from 'formik';
 import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
 import { FullcycleLogo, Mail, Pass } from 'src/assets';
-import { Block, Button, ErrorMessage, Input, Form, Logo } from 'src/components';
+import { Frame, Button, ErrorMessage, Input, Form, Logo } from 'src/components';
 import { FormValues, OtherProps } from 'src/types/formik';
 
 import { Password } from './Password';
@@ -17,7 +17,7 @@ export const LoginForm = (props: OtherProps & FormikProps<FormValues>) => {
   };
 
   return (
-    <Block>
+    <Frame>
       <Form>
         <Logo src={FullcycleLogo} alt="Logo" />
         <Input
@@ -68,6 +68,6 @@ export const LoginForm = (props: OtherProps & FormikProps<FormValues>) => {
             t('button.isSubmitting') : t('button.enter')}
         />
       </Form>
-    </Block>
+    </Frame>
   );
 };
