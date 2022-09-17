@@ -1,4 +1,3 @@
-import { Catalog } from 'src/interfaces/catalog';
 import { RootState } from 'src/store';
 import { useAppSelector } from 'src/store/shared';
 
@@ -36,7 +35,7 @@ const Gallery = ({
 
       <CardsBox>
         {booksData &&
-          booksData?.map((book: Catalog) => (
+          booksData?.map((book) => (
             <Cards
               key={book?.id}
               id={book?.id}

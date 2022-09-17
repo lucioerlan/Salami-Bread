@@ -1,8 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { Catalog } from 'src/interfaces/catalog';
 
-const initialState = {
-  categories: [],
-};
+const initialState: Catalog[] = [];
 
 const categoriesSlice = createSlice({
   name: 'categories',
