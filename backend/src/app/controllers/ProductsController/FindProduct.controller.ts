@@ -7,6 +7,12 @@ export class FindProductController {
         const { id } = request.params as { id: string };
         const data = await FindProductFacades({ id });
 
+        if (data instanceof Error) {
+            return response
+                .status(http_status_codes.NOT_FOUND)
+                .json(data.message);
+        }
+
         return response.status(http_status_codes.OK).json(data);
     }
 }

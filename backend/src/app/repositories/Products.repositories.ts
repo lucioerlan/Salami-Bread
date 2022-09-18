@@ -4,12 +4,7 @@ import { ProductsRequestInterface } from 'src/app/interfaces/Products.interface'
 
 export class ProductsRepositories {
     store({ name, category_id }: ProductsRequestInterface) {
-        return getRepository(Products)
-            .createQueryBuilder('Products')
-            .insert()
-            .into(Products)
-            .values({ name, category_id })
-            .execute();
+        return getRepository(Products).save({ name, category_id });
     }
 
     find() {
