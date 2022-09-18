@@ -14,7 +14,7 @@ jobs:
     strategy:
       matrix:
         node-version:
-          - "16"
+          - "16.x"
         database-name:
           - inventory
         database-user:
@@ -32,41 +32,11 @@ jobs:
         base-url:
           - http://localhost:5000/api/v1
 
-    services:
-      mysql:
-        image: mysql:latest
-        env:
-          MYSQL_DATABASE: ${{ matrix.database-name }}
-          MYSQL_USER: ${{ matrix.database-user }}
-          MYSQL_PASSWORD: ${{ matrix.database-password }}
-          MYSQL_ROOT_PASSWORD: ${{ matrix.database-password-admin }}
-        options: >-
-          --health-cmd="mysqladmin ping"
-          --health-interval=10s
-          --health-timeout=5s
-          --health-retries=5
-        ports:
-          - 3306:3306
-  nodejs:
+  backend:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
-    defaults:
-      run:
-        working-directory: ./backend
-
     steps:
-      - name: Check out Git Repository
-        uses: actions/checkout@v2
-
-      - name: Set up Node
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Setup and Test
+      - uses: actions/checkout@v2
+      - uses: "./"
         env:
           DB_TYPE: ${{ matrix.database-dialect }}
           DB_HOST: ${{ matrix.database-host }}
@@ -76,17 +46,10 @@ jobs:
           DB_PORT: ${{ matrix.database-port }}
           SECRET_JWT: ${{ secrets.SECRET_JWT }}
           EXPIRES_IN: 300
-
-  react:
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    defaults:
-      run:
-        working-directory: ./frontend
-
-    steps:
-      - name: Check out Git Repository
-        uses: actions/checkout@v2
+        with:
+          package_directory: "backend"
+          node_version: ${{ matrix.node-version }}
+          build_command: "npm run build"
 
       - name: Set up React
         uses: actions/setup-node@v1
@@ -95,7 +58,29 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+        
+      - name: Run tests
+        run: npm test
 
-      - name: Setup and Test
+  frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: "./"
         env:
           REACT_APP_API_URL: ${{ matrix.base-url }}
+        with:
+          package_directory: "frontend"
+          node_version: ${{ matrix.node-version }}
+          build_command: "npm run build"
+
+      - name: Set up React
+        uses: actions/setup-node@v1
+        with:
+          node_version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: npm install
+        
+      - name: Run tests
+        run: npm test

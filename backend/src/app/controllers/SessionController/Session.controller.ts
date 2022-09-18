@@ -7,6 +7,12 @@ export class SessionController {
         const { email, password } = request.body;
         const data = await SessionFacades({ email, password });
 
+        if (data instanceof Error) {
+            return response
+                .status(http_status_codes.BAD_REQUEST)
+                .json(data.message);
+        }
+
         return response.status(http_status_codes.OK).json(data);
     }
 }
