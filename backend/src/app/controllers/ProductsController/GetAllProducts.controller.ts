@@ -7,6 +7,12 @@ export class GetAllProductsController {
         const { page } = request.query as { page: string };
         const data = await GetAllProductsFacades({ page });
 
+        if (data instanceof Error) {
+            return response
+                .status(http_status_codes.NOT_FOUND)
+                .json(data.message);
+        }
+
         return response.status(http_status_codes.OK).json(data);
     }
 }

@@ -7,6 +7,12 @@ export class StoreProductsController {
         const { name, category_id } = request.body;
         const data = await StoreProductsFacades({ name, category_id });
 
+        if (data instanceof Error) {
+            return response
+                .status(http_status_codes.NOT_MODIFIED)
+                .json(data.message);
+        }
+
         return response.status(http_status_codes.OK).json(data);
     }
 }
