@@ -35,7 +35,7 @@
         "jsonwebtoken": "^8.5.1",
         "mysql": "^2.18.1",
         "swagger-ui-express": "^4.3.0",
-        "typeorm": "^0.2.41",
+        "typeorm": "^0.3.9",
         "typeorm-seeding": "^1.6.1"
     },
     "devDependencies": {
