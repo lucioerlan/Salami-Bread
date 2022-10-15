@@ -31,7 +31,7 @@
         "faker": "^6.6.6",
         "helmet": "^6.0.0",
         "http-status-codes": "^2.2.0",
-        "joi": "^17.6.0",
+        "joi": "^17.6.1",
         "jsonwebtoken": "^8.5.1",
         "mysql": "^2.18.1",
         "swagger-ui-express": "^4.3.0",
