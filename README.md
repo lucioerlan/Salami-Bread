@@ -11,11 +11,11 @@
 <p align="center">
   <h3 align="center">
 
-Salami Bread 🥟
+Salami Bread 🍞
 
   </h3> 
   <p align="center">
-    <img width="30%" src="https://user-images.githubusercontent.com/67064886/190645119-48a97dcd-7fd9-4506-bf5a-440ae86752dc.svg" alt="FullCycle Logo" >
+    <img width="30%" src="https://user-images.githubusercontent.com/67064886/196109913-d6702a1c-3b84-49c6-b2ca-43122788abcd.png" alt="FullCycle Logo" >
     <br />
     <br />
     <a href="https://github.com/lucioerlan/Salami-Bread/issues">Report Bug</a>
@@ -42,8 +42,8 @@ You'll need Node.js installed on your computer in order to build this app.
 ```bash
 git clone https://github.com/lucioerlan/Salami-Bread.git
 
-$ cd Salami-Bread/frontend
-$ cd Salami-Bread/backend
+$ cd Salami-Bread/client
+$ cd Salami-Bread/server
 
 $ npm install
 ```
@@ -59,14 +59,14 @@ $ npm install
 #### Copy or rename the file
 
 ```
-$ cp frontend/.env-examples frontend/.env
+$ cp client/.env-examples client/.env
 ```
 
 ```
-$ cp backend/.env-examples backend/.env
+$ cp server/.env-examples server/.env
 ```
 
-**-** Both located in the root of the frontend and backend.
+**-** Both located in the root of the client and server.
 
 <br />
 
