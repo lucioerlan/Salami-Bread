@@ -110,7 +110,7 @@ $ npm run test
 
 <!-- DOCUMENTATION -->
 
-## 📚 Documentação API
+## 📚 API documentation
 
 <br />
 
@@ -158,7 +158,7 @@ $ npm run start
 
 <br />
 
-## 🎲 Rodando o Frontend Localmente
+## 🎲 Running the Frontend Locally
 
 ```bash
 
