@@ -1,7 +1,7 @@
 import http_status_codes from 'http-status-codes';
 import { NextFunction, Request, Response } from 'express';
 import { verify } from 'jsonwebtoken';
-import { Token } from 'src/app/enums/Token.enum';
+import { TOKEN } from 'src/app/constants/Token.constants';
 
 export default function EnsuredAuthenticated(
     request: Request,
@@ -13,7 +13,7 @@ export default function EnsuredAuthenticated(
     if (!authHeaders) {
         return response
             .status(http_status_codes.UNAUTHORIZED)
-            .json({ error: Token.TOKEN_MISSING });
+            .json({ error: TOKEN.TOKEN_MISSING });
     }
 
     const [, token] = authHeaders.split(' ');
@@ -25,6 +25,6 @@ export default function EnsuredAuthenticated(
     } catch (err) {
         return response
             .status(http_status_codes.UNAUTHORIZED)
-            .json({ error: Token.TOKEN_MALFORMED });
+            .json({ error: TOKEN.TOKEN_MALFORMED });
     }
 }

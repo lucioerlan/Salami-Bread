@@ -9,6 +9,9 @@ export default class Categories1543557534534 implements MigrationInterface {
                     {
                         name: 'id',
                         type: 'int',
+                        isPrimary: true,
+                        isGenerated: true,
+                        generationStrategy: 'increment',
                     },
                     {
                         name: 'name',

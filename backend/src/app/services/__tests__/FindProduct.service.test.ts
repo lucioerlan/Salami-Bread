@@ -27,7 +27,7 @@ describe('FindProduct Service', () => {
 
     it('should be able error when product not found', async () => {
         const product = await findProductService.execute({
-            id: '100',
+            id: '1000',
         });
 
         expect(product).toBeInstanceOf(Error);
