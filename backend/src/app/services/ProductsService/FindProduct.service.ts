@@ -1,5 +1,5 @@
 import { ProductsRepositories } from 'src/app/repositories/Products.repositories';
-import { Products } from 'src/app/enums/Products.enum';
+import { PRODUCTS } from 'src/app/constants/Products.constants';
 import { ProductSearchInterface } from 'src/app/interfaces/Products.interface';
 
 export class FindProductService {
@@ -8,7 +8,7 @@ export class FindProductService {
         const products = await productsRepositories.findById(id);
 
         if (!products) {
-            return new Error(Products.PRODUCT_NOT_FOUND);
+            return new Error(PRODUCTS.PRODUCT_NOT_FOUND);
         }
 
         return products;

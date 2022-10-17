@@ -1,6 +1,6 @@
 import JwtHelper from 'src/app/helpers/Jwt.helper';
 import { UserRequestInterface } from 'src/app/interfaces/User.interface';
-import { Token } from 'src/app/enums/Token.enum';
+import { TOKEN } from 'src/app/constants/Token.constants';
 
 export class SessionService {
     async execute({ email, password }: UserRequestInterface) {
@@ -10,7 +10,7 @@ export class SessionService {
         };
 
         if (!(await JwtHelper._compare(password, user.token))) {
-            return new Error(Token.INVALID_PASSWORD);
+            return new Error(TOKEN.INVALID_PASSWORD);
         }
 
         const token = JwtHelper._sign(user.username);

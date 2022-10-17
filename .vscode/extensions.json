@@ -1,9 +1,0 @@
-{
-  "recommendations": [
-    "editorconfig.editorconfig",
-    "dbaeumer.vscode-eslint",
-    "naumovs.color-highlight",
-    "esbenp.prettier-vscode",
-    "jpoissonnier.vscode-styled-components"
-  ]
-}

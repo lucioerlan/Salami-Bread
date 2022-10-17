@@ -2,7 +2,7 @@ import http_status_codes from 'http-status-codes';
 import { sign, decode } from 'jsonwebtoken';
 import { compare } from 'bcryptjs';
 import { AppError } from 'src/app/errors/AppError';
-import { Token } from 'src/app/enums/Token.enum';
+import { TOKEN } from 'src/app/constants/Token.constants';
 import config from 'src/config';
 
 class JwtHelper {
@@ -12,7 +12,7 @@ class JwtHelper {
 
             if (!decoded) {
                 throw new AppError(
-                    Token.INVALID_TOKEN,
+                    TOKEN.INVALID_TOKEN,
                     http_status_codes.UNAUTHORIZED,
                 );
             }
@@ -20,7 +20,7 @@ class JwtHelper {
             return decoded;
         } catch (error) {
             return new AppError(
-                Token.TOKEN_NOT_PROVIDED,
+                TOKEN.TOKEN_NOT_PROVIDED,
                 http_status_codes.UNAUTHORIZED,
             );
         }
@@ -35,7 +35,7 @@ class JwtHelper {
 
             if (!token) {
                 throw new AppError(
-                    Token.TOKEN_NOT_GENERATED,
+                    TOKEN.TOKEN_NOT_GENERATED,
                     http_status_codes.BAD_REQUEST,
                 );
             }
@@ -43,7 +43,7 @@ class JwtHelper {
             return token;
         } catch (err) {
             return new AppError(
-                Token.ERROR_TO_GENERATE_TOKEN,
+                TOKEN.ERROR_TO_GENERATE_TOKEN,
                 http_status_codes.BAD_REQUEST,
             );
         }
@@ -55,7 +55,7 @@ class JwtHelper {
 
             if (!isValid || isValid instanceof Error) {
                 throw new AppError(
-                    Token.INVALID_TOKEN,
+                    TOKEN.INVALID_TOKEN,
                     http_status_codes.UNAUTHORIZED,
                 );
             }
@@ -63,7 +63,7 @@ class JwtHelper {
             return isValid;
         } catch (err) {
             return new AppError(
-                Token.ERROR_TO_COMPARE_PASSWORD,
+                TOKEN.ERROR_TO_COMPARE_PASSWORD,
                 http_status_codes.BAD_REQUEST,
             );
         }
@@ -75,7 +75,7 @@ class JwtHelper {
 
             if (!user) {
                 return new AppError(
-                    Token.USER_NOT_FOUND,
+                    TOKEN.USER_NOT_FOUND,
                     http_status_codes.UNAUTHORIZED,
                 );
             }
@@ -83,7 +83,7 @@ class JwtHelper {
             return user;
         } catch (err) {
             return new AppError(
-                Token.ERROR_TO_FIND_USER,
+                TOKEN.ERROR_TO_FIND_USER,
                 http_status_codes.BAD_REQUEST,
             );
         }

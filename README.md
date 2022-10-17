@@ -11,47 +11,39 @@
 <p align="center">
   <h3 align="center">
 
-Desafio FullCycle 💛
+Salami Bread 🥟
 
   </h3> 
   <p align="center">
     <img width="30%" src="https://user-images.githubusercontent.com/67064886/190645119-48a97dcd-7fd9-4506-bf5a-440ae86752dc.svg" alt="FullCycle Logo" >
     <br />
     <br />
-    <a href="https://github.com/lucioerlan/jobChallenge-FullCycle/issues">Report Bug</a>
+    <a href="https://github.com/lucioerlan/Salami-Bread/issues">Report Bug</a>
     ·
-    <a href="https://github.com/lucioerlan/jobChallenge-FullCycle/issues">Request Feature</a>
+    <a href="https://github.com/lucioerlan/Salami-Bread/issues">Request Feature</a>
   </p>
 </p>
 
 <!-- ABOUT THE PROJECT -->
 
-## 🤔 Sobre o projeto
+## 🤔 About The Project
 
-Esse Readme é para auxiliar no processo de instalação, execução, testes, deploy do projeto e monitoramento.
-
-Para os detalhes técnicos do que foi implementado, tecnologias e sobre os desafios propostos <details> <summary><b>🎷Clique Aqui<sup>ver+</sup></b></summary>
-
-  <ul>
-    <li><a target="_blank" rel="noopener noreferrer" href='https://github.com/lucioerlan/jobChallenge-FullCycle/blob/develop/DESAFIOS.md'> README COM OS DESAFIOS </a></li>
-  </ul> 
-</details>
-
+System to sell trinkets online
 <br /><br />
 
 ---
 
 <!-- INSTALLATION -->
 
-## 🔨 Instalação Local
+## 🔨 Installation Default
 
-Você precisará do [Node.js](https://nodejs.org) versão 10 ou superior, instalado no seu computador para continuar.
+You'll need Node.js installed on your computer in order to build this app.
 
 ```bash
-git clone https://github.com/lucioerlan/jobChallenge-FullCycle.git
+git clone https://github.com/lucioerlan/Salami-Bread.git
 
-$ cd jobChallenge-FullCycle/frontend
-$ cd jobChallenge-FullCycle/backend
+$ cd Salami-Bread/frontend
+$ cd Salami-Bread/backend
 
 $ npm install
 ```
@@ -62,9 +54,9 @@ $ npm install
 
 <!-- SETUP -->
 
-## 🔥 Configuração Local
+## 🔥 Local Configuration
 
-#### Copie ou renomeie os arquivos de configuração
+#### Copy or rename the file
 
 ```
 $ cp frontend/.env-examples frontend/.env
@@ -74,7 +66,7 @@ $ cp frontend/.env-examples frontend/.env
 $ cp backend/.env-examples backend/.env
 ```
 
-**-** Ambos localizados na raiz do frontend e backend.
+**-** Both located in the root of the frontend and backend.
 
 <br />
 
@@ -82,11 +74,11 @@ $ cp backend/.env-examples backend/.env
 
 <!-- RUNNING TESTS -->
 
-## 🧪 Rodando testes
+## 🧪 Running tests
 
 <br />
 
-- ### Para rodar os testes, relacionados ao frontend 🤑
+- ### To run the tests, frontend related 🤑
 
 ```
 $ npm run test
@@ -95,6 +87,7 @@ $ npm run test
 ```
 $ npm run cypress:all
 ```
+
 **-** React Testing Library - Units
 
 **-** Cypress - E2E
@@ -103,7 +96,7 @@ $ npm run cypress:all
 
 <br />
 
-- ### Para rodar os testes, relacionados ao backend 🤑
+- ### To run the tests, related to the backend 🤑
 
 ```
 $ npm run test
@@ -121,7 +114,7 @@ $ npm run test
 
 <br />
 
-- Para Accessar a documentação do Swagger
+- To Access Swagger Documentation
 - http://localhost:5000/api/v1/docs/swagger
 
 <br />
@@ -130,9 +123,9 @@ $ npm run test
 
 <!-- OTHER SETTINGS -->
 
-## 👻 Outras Configurações
+## 👻 Other Configurations
 
-- Popule rapidamente o banco de dados, com várias informações ↓
+- Populate the database quickly, with various information ↓
 
 ```
 $ npm run typeorm:migration
@@ -142,9 +135,9 @@ $ npm run typeorm:migration
 $ npm run typeorm:seed
 ```
 
-**-** Migrations - Criação de tabelas
+**-** Migrations - Creating Tables
 
-**-** Seeds - População de tabelas
+**-** Seeds - Table Population
 
 <br />
 
@@ -152,14 +145,14 @@ $ npm run typeorm:seed
 
 <!-- RUNNING -->
 
-## 🎲 Rodando o Backend Localmente
+## 🎲 Running the Backend Locally
 
 ```bash
 
-# Execute a aplicação
+# Run the application
 $ npm run start
 
-# O servidor inciará na porta:5000 - acesse http://localhost:5000
+# The server will start on port:5000 - go to http://localhost:5000
 
 ```
 
@@ -169,10 +162,10 @@ $ npm run start
 
 ```bash
 
-# Execute a aplicação
+# Run the application
 $ npm run start
 
-# O servidor inciará na porta:3000 - acesse http://localhost:3000
+# The server will start on port:3000 - go to http://localhost:3000
 
 ```
 
@@ -182,9 +175,9 @@ $ npm run start
 
 <!-- DOCKER -->
 
-## 🐳 Executando com o Docker
+## 🐳 Running with Docker
 
-- Para criar todos os containers e rodar toda a aplicação. - (nginx, nodejs, reactjs, elasticsearch, kibana, apm-server, mysql e sonnarqube)
+- To create all the containers and run the whole application. - (nginx, nodejs, reactjs, elasticsearch, kibana, apm-server, mysql and sonnarqube)
 
 ```
 $ docker network create node-net
@@ -200,11 +193,11 @@ $ docker-compose up --build
 
 <!-- OBSERVABILITY -->
 
-## 👀 Observabilidade 
+## 👀 Observability
 
 <br />
 
-- Para Accessar o Kibana e visualizar métricas e logs.
+- To Access Kibana and view metrics and logs.
 - http://localhost:5601
 
 <br />
@@ -215,7 +208,7 @@ $ docker-compose up --build
 
 ## 🔓 Licença
 
-Este projeto está sob licença do MIT. Consulte a LICENÇA para obter mais detalhes. © - [Erlan Lucio](https://www.linkedin.com/in/erlanlucio/)
+This project lives under MIT License. See LICENSE for more details. © - [Erlan Lucio](https://www.linkedin.com/in/erlanlucio/)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
