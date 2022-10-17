@@ -3,20 +3,7 @@ version: "3.4"
 volumes:
   node_data: {}
 
-networks:
-  node-net:
-    external: false
-
 services:
-  ################################ NGINX ################################
-  nginx:
-    container_name: nginx
-    restart: always
-    build:
-      dockerfile: Dockerfile
-      context: ./.nginx
-    ports:
-      - 8080:80
   ################################ REACTJS ################################
   frontend:
     container_name: frontend
@@ -35,8 +22,6 @@ services:
     deploy:
       restart_policy:
         condition: on-failure
-    networks:
-      - node-net
     depends_on:
       - backend
     ports:
@@ -71,8 +56,6 @@ services:
     deploy:
       restart_policy:
         condition: on-failure
-    networks:
-      - node-net
     depends_on:
       - db
     ports:
@@ -88,8 +71,6 @@ services:
       - xpack.watcher.enabled=false
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
       - discovery.type=single-node
-    networks:
-      - node-net
     ports:
       - 9200:9200
   ################################ KIBANA ################################
@@ -99,8 +80,6 @@ services:
     environment:
       - ELASTICSEARCH_URL=http://localhost:9200
       - xpack.apm.enabled=false
-    networks:
-      - node-net
     depends_on:
       - elasticsearch
     ports:
@@ -117,8 +96,6 @@ services:
         -E apm-server.kibana.enabled=true
         -E apm-server.kibana.host=kibana:5601
         -E output.elasticsearch.hosts=["elasticsearch:9200"]
-    networks:
-      - node-net
     depends_on:
       - elasticsearch
       - kibana
@@ -133,8 +110,6 @@ services:
       - MYSQL_USER=user
       - MYSQL_PASSWORD=user
       - MYSQL_ROOT_PASSWORD=admin
-    networks:
-      - node-net
     ports:
       - 3306:3306
     command: --default-authentication-plugin=mysql_native_password

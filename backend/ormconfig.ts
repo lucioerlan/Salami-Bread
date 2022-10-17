@@ -11,11 +11,11 @@ export default {
     logging: "all",
     insecureAuth: true,
     entities: [Categories, Products],
-    migrations: ["src/app/database/migrations/*.ts"],
-    seeds: ['src/app/database/seeding/seeds/**/*{.ts,.js}'],
-    factories: ['src/app/database/seeding/factories/**/*{.ts,.js}'],
+    migrations: ["src/database/migrations/*.ts"],
+    seeds: ['src/database/seeding/seeds/**/*{.ts,.js}'],
+    factories: ['src/database/seeding/factories/**/*{.ts,.js}'],
     cli: {
-        migrationsDir: './src/app/database/migrations',
+        migrationsDir: './src/database/migrations',
         entitiesDir: './src/app/entities',
     },
 };
