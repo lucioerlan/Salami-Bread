@@ -5,16 +5,16 @@ volumes:
 
 services:
   ################################ REACTJS ################################
-  frontend:
-    container_name: frontend
+  client:
+    container_name: client
     build:
       dockerfile: Dockerfile
-      context: ./frontend
+      context: ./client
     expose:
       - 3000
     volumes:
       - /app/node_modules
-      - ./frontend:/app
+      - ./client:/app
     environment:
       - NODE_ENV=production
       - REACT_APP_API_URL=http://localhost:5000/api/v1
@@ -23,20 +23,20 @@ services:
       restart_policy:
         condition: on-failure
     depends_on:
-      - backend
+      - server
     ports:
       - 3000:3000
   ################################ NODEJS ################################
-  backend:
-    container_name: backend
+  server:
+    container_name: server
     build:
       dockerfile: Dockerfile
-      context: ./backend
+      context: ./server
     expose:
       - 5000
     volumes:
       - /app/node_modules
-      - ./backend:/app
+      - ./server:/app
     environment:
       - NODE_ENV=production
       - PORT=5000
